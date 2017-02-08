@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- 
-nothig special
+
 Template Name: MeshJobs Multipurpose Responsive HTML Template
 Version: 1.1
 Author: DigiSamaritan
