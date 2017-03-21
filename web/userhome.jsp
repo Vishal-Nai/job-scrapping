@@ -1,3 +1,4 @@
+<%@page import="model.dummy"%>
 <!DOCTYPE html>
 <!-- 
 
@@ -62,7 +63,7 @@ Purchase: http://themeforest.net/user/DigiSamaritan
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                 			
                                             <div class="form-group">  <select name="location" class="form-control">
-									<option>Location</option>
+                                                    <option value="">Location</option>
 									<option>Ahmedabad</option>
 									<option>Surat</option>
 									<option>Baroda</option>
@@ -71,7 +72,7 @@ Purchase: http://themeforest.net/user/DigiSamaritan
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                		 <div class="form-group"><select name="exp" class="form-control">
-									<option>Experience</option>
+                                                 <option value="0">Experience</option>
 									<option>Fresher</option>
 									<option>1</option>
 									<option>2</option>
@@ -93,25 +94,16 @@ Purchase: http://themeforest.net/user/DigiSamaritan
     <div class="mj_filter_section">
         <div class="container">
             <div class="row">
-                <div class="mj_jobinfo">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                        <div class="row">
-                            <div class="mj_showjob">
-                                <p>showing <strong>368</strong> job offers</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                        <div class="row">
-                            <div class="mj_rss_feed">
-                                <p>RSS <i class="fa fa-rss"></i>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               
+                <%
+                    if(request.getAttribute("d")!=null){
+                       dummy d=(dummy)request.getAttribute("d"); 
+                    %>
                 <div class="mj_tabcontent mj_bottompadder80">
                     <table class="table table-striped">
+                        <%
+                       for(int i=0;i<10;i++){
+                        %>
                         <tr>
                             <td>
                                 <div class="mj_liks"><a href="#"><i class="fa fa-heart"></i></a><span>Save this Job</span>
@@ -122,127 +114,23 @@ Purchase: http://themeforest.net/user/DigiSamaritan
                                 </a>
                             </td>
                             <td>
-                                <h4><a href="job_detail.html">Senior Web Developer</a></h4>
-                                <p>Company Inc.</p>
+                                <h4><a href="SecondServlet?url=<%=d.getTimesjob().get(i)%>"><%=d.getHeading().getElement(i).innerHTML()%></a></h4>
+                                       <p><%=d.getCompany().getElement(i).innerHTML()%></p>
                             </td>
-                            <td><i class="fa fa-map-marker"></i>
-                                <P>New York City</P>
+                            <td style="font-size: 15px"><i class="fa fa-map-marker"></i>
+                                <P><%=d.getCity().getElement(i).innerHTML()%></P>
                             </td>
-                            <td><a href="#" class="mj_btn mj_greenbtn">Full Time</a>
-                            </td>
-                            <td><span>$45,000</span>
-                            </td>
+                            <td><input type="submit" value="Apply"></td>
                         </tr>
-                        <tr>
-                            <td>
-                                <div class="mj_liks"><a href="#"><i class="fa fa-heart"></i></a><span>Save this Job</span>
-                                </div>
-                            </td>
-                            <td>
-                                <a href="#"><img src="images/profilepic2.jpg" class="img-responsive" alt="">
-                                </a>
-                            </td>
-                            <td>
-                                <h4><a href="job_detail.html">UX Designer</a></h4>
-                                <p>Company Inc.</p>
-                            </td>
-                            <td><i class="fa fa-map-marker"></i>
-                                <P>Boston</P>
-                            </td>
-                            <td><a href="#" class="mj_btn mj_bluebtn">Freelance</a>
-                            </td>
-                            <td><span>$20,000</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="mj_liks"><a href="#"><i class="fa fa-heart"></i></a><span>Save this Job</span>
-                                </div>
-                            </td>
-                            <td>
-                                <a href="#"><img src="images/profilepic3.jpg" class="img-responsive" alt="">
-                                </a>
-                            </td>
-                            <td>
-                                <h4><a href="job_detail.html">Web Designer</a></h4>
-                                <p>Company Inc.</p>
-                            </td>
-                            <td><i class="fa fa-map-marker"></i>
-                                <P>Boston</P>
-                            </td>
-                            <td><a href="#" class="mj_btn mj_greenbtn">full time</a>
-                            </td>
-                            <td><span>$36,500</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="mj_liks"><a href="#"><i class="fa fa-heart"></i></a><span>Save this Job</span>
-                                </div>
-                            </td>
-                            <td>
-                                <a href="#"><img src="images/profilepic4.jpg" class="img-responsive" alt="">
-                                </a>
-                            </td>
-                            <td>
-                                <h4><a href="job_detail.html">Project Manager</a></h4>
-                                <p>Company Inc.</p>
-                            </td>
-                            <td><i class="fa fa-map-marker"></i>
-                                <P>Los Angeles</P>
-                            </td>
-                            <td><a href="#" class="mj_btn mj_greenbtn">full time</a>
-                            </td>
-                            <td><span>$26,200</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="mj_liks"><a href="#"><i class="fa fa-heart"></i></a><span>Save this Job</span>
-                                </div>
-                            </td>
-                            <td>
-                                <a href="#"><img src="images/profilepic5.jpg" class="img-responsive" alt="">
-                                </a>
-                            </td>
-                            <td>
-                                <h4><a href="job_detail.html">Design Technologist</a></h4>
-                                <p>Company Inc.</p>
-                            </td>
-                            <td><i class="fa fa-map-marker"></i>
-                                <P>Chicago</P>
-                            </td>
-                            <td><a href="#" class="mj_btn mj_orangebtn">Part Time</a>
-                            </td>
-                            <td><span>$84,000</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="mj_liks"><a href="#"><i class="fa fa-heart"></i></a><span>Save this Job</span>
-                                </div>
-                            </td>
-                            <td>
-                                <a href="#"><img src="images/profilepic6.jpg" class="img-responsive" alt="">
-                                </a>
-                            </td>
-                            <td>
-                                <h4><a href="job_detail.html">Front End Developer</a></h4>
-                                <p>Company Inc.</p>
-                            </td>
-                            <td><i class="fa fa-map-marker"></i>
-                                <P>New York City</P>
-                            </td>
-                            <td><a href="#" class="mj_btn mj_greenbtn">full Time</a>
-                            </td>
-                            <td><span>$65,000</span>
-                            </td>
-                        </tr>
+                        <%}%>
+                    
                     </table>
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 col-lg-offset-4 col-md-offset-4">
 						<div class="mj_showmore"> <a href="#" class="mj_showmorebtn mj_blackbtn">Show More</a> </div>
 					</div>
                 </div>
+                <%}
+                %>
             </div>
         </div>
     </div>

@@ -28,6 +28,10 @@
         <servlet-name>searchjob</servlet-name>
         <servlet-class>searchjob</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SecondServlet</servlet-name>
+        <servlet-class>SecondServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>regUser</servlet-name>
         <url-pattern>/regUser</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>searchjob</servlet-name>
         <url-pattern>/searchjob</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SecondServlet</servlet-name>
+        <url-pattern>/SecondServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

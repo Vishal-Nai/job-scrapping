@@ -20,21 +20,22 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Hp
+ * @author Vishal
  */
 @Entity
 @Table(name = "UserReg")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "UserReg.findAll", query = "SELECT u FROM UserReg u"),
-    @NamedQuery(name = "UserReg.findByTid", query = "SELECT u FROM UserReg u WHERE u.tid = :tid"),
-    @NamedQuery(name = "UserReg.findByEmail", query = "SELECT u FROM UserReg u WHERE u.email = :email"),
-    @NamedQuery(name = "UserReg.findByMobile", query = "SELECT u FROM UserReg u WHERE u.mobile = :mobile"),
-    @NamedQuery(name = "UserReg.findByState", query = "SELECT u FROM UserReg u WHERE u.state = :state"),
-    @NamedQuery(name = "UserReg.findByCity", query = "SELECT u FROM UserReg u WHERE u.city = :city")})
+    @NamedQuery(name = "UserReg.findAll", query = "SELECT u FROM UserReg u")
+    , @NamedQuery(name = "UserReg.findByTid", query = "SELECT u FROM UserReg u WHERE u.tid = :tid")
+    , @NamedQuery(name = "UserReg.findByEmail", query = "SELECT u FROM UserReg u WHERE u.email = :email")
+    , @NamedQuery(name = "UserReg.findByMobile", query = "SELECT u FROM UserReg u WHERE u.mobile = :mobile")
+    , @NamedQuery(name = "UserReg.findByState", query = "SELECT u FROM UserReg u WHERE u.state = :state")
+    , @NamedQuery(name = "UserReg.findByCity", query = "SELECT u FROM UserReg u WHERE u.city = :city")})
 public class UserReg implements Serializable {
+
     private static final long serialVersionUID = 1L;
-    @Id@GeneratedValue
+    @Id @GeneratedValue
     @Basic(optional = false)
     @Column(name = "tid")
     private Integer tid;

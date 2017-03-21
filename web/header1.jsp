@@ -87,33 +87,13 @@ and open the template in the editor.
                         </ul>
                         <ul class="nav navbar-nav navbar-right mj_right_menu mj_withoutlogin_menu">
                             
-                            <li><a href="getState"><i class="fa fa-lock"></i>Logout</a>
+                            <li><a href="#"><i class="fa fa-lock"></i>Logout</a>
                             </li>
-                            
                         </ul>
-                        <div class="mj_profilediv" id="my_profile_div_login">
-                            <form>
-                                <div class="form-group">
-                                    <input type="text" placeholder="Username or Email" id="ur_name" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" placeholder="Password" id="ur_password" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <div class="mj_checkbox">
-                                        <input type="checkbox" value="1" id="check1" name="checkbox">
-                                        <label for="check1"></label>
-                                    </div>
-                                    <span> remember me</span>
-                                </div>
-                                <div class="mj_showmore"> <a href="#" class="mj_showmorebtn mj_greenbtn">login now!</a> </div>
-                            </form>
-                        </div>
+                    </div>
                     </div>
                 </div>
             </div>
-            
-        </div>
        </div>
          <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
     <script src="js/bootstrap.js" type="text/javascript"></script>

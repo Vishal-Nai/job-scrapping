@@ -20,18 +20,19 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Hp
+ * @author Vishal
  */
 @Entity
 @Table(name = "City")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "City.findAll", query = "SELECT c FROM City c"),
-    @NamedQuery(name = "City.findByCid", query = "SELECT c FROM City c WHERE c.cid = :cid"),
-    @NamedQuery(name = "City.findByCname", query = "SELECT c FROM City c WHERE c.cname = :cname")})
+    @NamedQuery(name = "City.findAll", query = "SELECT c FROM City c")
+    , @NamedQuery(name = "City.findByCid", query = "SELECT c FROM City c WHERE c.cid = :cid")
+    , @NamedQuery(name = "City.findByCname", query = "SELECT c FROM City c WHERE c.cname = :cname")})
 public class City implements Serializable {
+
     private static final long serialVersionUID = 1L;
-    @Id@GeneratedValue
+    @Id @GeneratedValue
     @Basic(optional = false)
     @Column(name = "cid")
     private Integer cid;

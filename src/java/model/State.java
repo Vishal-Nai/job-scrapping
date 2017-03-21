@@ -22,18 +22,19 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Hp
+ * @author Vishal
  */
 @Entity
 @Table(name = "State")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "State.findAll", query = "SELECT s FROM State s"),
-    @NamedQuery(name = "State.findBySid", query = "SELECT s FROM State s WHERE s.sid = :sid"),
-    @NamedQuery(name = "State.findBySname", query = "SELECT s FROM State s WHERE s.sname = :sname")})
+    @NamedQuery(name = "State.findAll", query = "SELECT s FROM State s")
+    , @NamedQuery(name = "State.findBySid", query = "SELECT s FROM State s WHERE s.sid = :sid")
+    , @NamedQuery(name = "State.findBySname", query = "SELECT s FROM State s WHERE s.sname = :sname")})
 public class State implements Serializable {
+
     private static final long serialVersionUID = 1L;
-    @Id@GeneratedValue
+    @Id @GeneratedValue
     @Basic(optional = false)
     @Column(name = "sid")
     private Integer sid;

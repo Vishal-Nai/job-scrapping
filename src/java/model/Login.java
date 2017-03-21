@@ -22,19 +22,20 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Hp
+ * @author Vishal
  */
 @Entity
 @Table(name = "Login")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Login.findAll", query = "SELECT l FROM Login l"),
-    @NamedQuery(name = "Login.findByUid", query = "SELECT l FROM Login l WHERE l.uid = :uid"),
-    @NamedQuery(name = "Login.findByUname", query = "SELECT l FROM Login l WHERE l.uname = :uname"),
-    @NamedQuery(name = "Login.findByPwd", query = "SELECT l FROM Login l WHERE l.pwd = :pwd")})
+    @NamedQuery(name = "Login.findAll", query = "SELECT l FROM Login l")
+    , @NamedQuery(name = "Login.findByUid", query = "SELECT l FROM Login l WHERE l.uid = :uid")
+    , @NamedQuery(name = "Login.findByUname", query = "SELECT l FROM Login l WHERE l.uname = :uname")
+    , @NamedQuery(name = "Login.findByPwd", query = "SELECT l FROM Login l WHERE l.pwd = :pwd")})
 public class Login implements Serializable {
+
     private static final long serialVersionUID = 1L;
-    @Id@GeneratedValue
+    @Id @GeneratedValue
     @Basic(optional = false)
     @Column(name = "uid")
     private Integer uid;

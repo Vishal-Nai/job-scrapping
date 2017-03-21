@@ -9,19 +9,16 @@ import com.jaunt.Elements;
 import com.jaunt.UserAgent;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.dummy;
 
 /**
  *
- * @author Hp
+ * @author Lenovo1
  */
-public class searchjob extends HttpServlet {
+public class SecondServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,38 +34,25 @@ public class searchjob extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try  {
-          String name=request.getParameter("job");
-          String location=request.getParameter("location");
-          String exp=request.getParameter("exp");
-          UserAgent user = new UserAgent();
-          String[] name1=name.split(" ");
-                  
-                  if(name1.length==2)
-                  {
-                     user.visit("http://www.timesjobs.com/candidate/job-search.html?searchType=personalizedSearch&from=submit&txtKeywords="+name1[0]+"+"+name1[1]+"&txtLocation="+location+"&cboWorkExp1="+exp);
-                  }
-                  else if(name1.length==1)
-                  {
-                      user.visit("http://www.timesjobs.com/candidate/job-search.html?searchType=personalizedSearch&from=submit&txtKeywords="+name+"&txtLocation="+location+"&cboWorkExp1="+exp); 
-                  }
-            Elements heading=user.doc.findFirst("<div id=\"searchResultData\">").findFirst("<ul class=\"joblist\">").findEvery("<h2>").findEach("<a href>");
-            List<String> heading1=user.doc.findFirst("<div id=\"searchResultData\">").findFirst("<ul class=\"joblist\">").findEvery("<h2>").findAttributeValues("<a href>");
-
-            Elements company=user.doc.findFirst("<div id=\"searchResultData\">").findFirst("<ul class=\"joblist\">").findEvery("<h3 class=\"joblist-comp-name\">");
-            Elements city=user.doc.findFirst("<div id=\"searchResultData\">").findFirst("<ul class=\"joblist\">").findEvery("<ul class=\"job-more-dtl clearfix\">");
-            dummy d=new dummy();
-            d.setHeading(heading);
-            d.setCompany(company);
-            d.setCity(city);
-            d.setTimesjob(heading1);
+            /* TODO output your page here. You may use following sample code. */
+            String url = request.getParameter("url");
+           
+            UserAgent user=new UserAgent();
+            
+            if(url!=null)
+            {
+                user.visit(url);
+                Element e=user.doc.findFirst("<div id=\"searchResultData\">").findFirst("<div id=\"site\">");
+out.println(e.getElement(0).innerHTML());
+            }
+            
           
-            request.setAttribute("d", d);
-          RequestDispatcher rd=request.getRequestDispatcher("userhome.jsp");
-          rd.forward(request, response);
+            
+            out.print("empty url!!");
         }
         catch(Exception e)
         {
-            out.println(e.getMessage());
+            out.print(e.getMessage());
         }
     }
 
